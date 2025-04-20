@@ -1,0 +1,22 @@
+
+if uf:
+    uf = pd.read_csv(uf)
+    uf_numeric = uf.select_dtypes(include=["float64", "int64"], exclude='string')
+    st.write(uf_numeric)
+    st.scatter_chart(uf_numeric)
+
+# for i in range(len(uf_numeric.columns)):
+#     st.write(uf_numeric[uf_numeric.columns[i]])
+
+# TODO : choisir aleatoirement les centroides
+if k:
+    st.title("Les centroides")
+    my_number = int(my_number)
+    centroid_index = np.random.randint(1, uf_numeric.shape[0], size=my_number)
+    for i in range(my_number):
+        st.write(list(uf_numeric.loc[centroid_index[i]]))
+
+    list_uf = uf_numeric.values.tolist()
+    st.write(list_uf)
+
+# TODO : clacul de la distance entre les centroides et les points
